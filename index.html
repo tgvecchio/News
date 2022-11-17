@@ -22,21 +22,22 @@
   <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
+  <py-config>
+    [[fetch]]
+    files = ["/tarzan2.py"]
+  </py-config>
+
 </head>
 
 <body>
-  <py-env>
-  -paths:
-      -/tarzan2.py
-  </py-env>
 
   <h1> ... </h1>
   <a> Wait for pyhton </a>
   <h1> .. </h1>
 
   <py-script>
-      #import random
-      from tarzan2 import hi
+      import random
+      #from tarzan2 import hi
       #import news.py
       #from newsapi import NewsApiClient
       #apis = ('f5f7ae594ad34dadbe4c0557dc6ed08d','3dec73d81a554590b4a31773ead72a3b','094187de74f94946a2b43ef202a3aa12')
