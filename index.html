@@ -21,10 +21,10 @@
 
   <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  <py-config>
-      [[fetch]]
-      files = ["/tarzan2.py"]
-  </py-config>
+  #<py-config>
+      #[[fetch]]
+      #files = ["/tarzan2.py"]
+  #</py-config>
 
   <py-env>
       - paths:
@@ -42,7 +42,7 @@
 
   <py-script>
       import random
-      import tarzan
+      import tarzan2
       from newsapi_client import NewsApiClient
       apis = ('f5f7ae594ad34dadbe4c0557dc6ed08d','3dec73d81a554590b4a31773ead72a3b','094187de74f94946a2b43ef202a3aa12')
       api = NewsApiClient(api_key=random.choice(apis))
