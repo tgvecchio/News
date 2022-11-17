@@ -52,7 +52,7 @@ def run_news():
 		   'wired')
 
 	try:
-		for i in random.sample(ids, 4):
+		for i in ids:
 			njson = api.get_top_headlines(sources=i)
 			for i in njson['articles']:
 				# if i['publishedAt'] == None:
