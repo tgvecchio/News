@@ -1,6 +1,3 @@
-def hi():
-	print('tarzan')
-
 def run_news():
 	ids = ('abc-news',
 		   'al-jazeera-english',
