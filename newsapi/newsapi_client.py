@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import requests
 
 import const
-from newsapi_auth import NewsApiAuth
+#from newsapi_auth import NewsApiAuth
 from newsapi_exception import NewsAPIException
 from utils import is_valid_string, stringify_date_param
 
@@ -23,7 +23,7 @@ class NewsApiClient(object):
     """
 
     def __init__(self, api_key, session=None):
-        self.auth = NewsApiAuth(api_key=api_key)
+        #self.auth = NewsApiAuth(api_key=api_key)
         if session is None:
             self.request_method = requests
         else:
