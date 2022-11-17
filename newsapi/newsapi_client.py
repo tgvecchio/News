@@ -2,10 +2,10 @@ from __future__ import unicode_literals
 
 import requests
 
-from newsapi import const
-from newsapi.newsapi_auth import NewsApiAuth
-from newsapi.newsapi_exception import NewsAPIException
-from newsapi.utils import is_valid_string, stringify_date_param
+import const
+from newsapi_auth import NewsApiAuth
+from newsapi_exception import NewsAPIException
+from utils import is_valid_string, stringify_date_param
 
 
 class NewsApiClient(object):
@@ -62,12 +62,12 @@ class NewsApiClient(object):
         :type language: str or None
 
         :param country: The 2-letter ISO 3166-1 code of the country you want to get headlines for.
-            See :data:`newsapi.const.countries` for the set of allowed values.
+            See :data:`const.countries` for the set of allowed values.
             **Note**: you can't mix this parameter with the ``sources`` param.
         :type country: str or None
 
         :param category: The category you want to get headlines for.
-            See :data:`newsapi.const.categories` for the set of allowed values.
+            See :data:`const.categories` for the set of allowed values.
             **Note**: you can't mix this parameter with the ``sources`` param.
         :type category: str or None
 
@@ -222,11 +222,11 @@ class NewsApiClient(object):
         :type to: str or datetime.datetime or datetime.date or int or float or None
 
         :param language: The 2-letter ISO-639-1 code of the language you want to get headlines for.
-            See :data:`newsapi.const.languages` for the set of allowed values.
+            See :data:`const.languages` for the set of allowed values.
         :type language: str or None
 
         :param sort_by: The order to sort articles in.
-            See :data:`newsapi.const.sort_method` for the set of allowed values.
+            See :data:`const.sort_method` for the set of allowed values.
         :type sort_by: str or None
 
         :param page: The number of results to return per page (request).
@@ -341,15 +341,15 @@ class NewsApiClient(object):
         Fetch the subset of news publishers that /top-headlines are available from.
 
         :param category: Find sources that display news of this category.
-            See :data:`newsapi.const.categories` for the set of allowed values.
+            See :data:`const.categories` for the set of allowed values.
         :type category: str or None
 
         :param language: Find sources that display news in a specific language.
-            See :data:`newsapi.const.languages` for the set of allowed values.
+            See :data:`const.languages` for the set of allowed values.
         :type language: str or None
 
         :param country: Find sources that display news in a specific country.
-            See :data:`newsapi.const.countries` for the set of allowed values.
+            See :data:`const.countries` for the set of allowed values.
         :type country: str or None
 
         :return: JSON response as nested Python dictionary.
