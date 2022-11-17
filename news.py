@@ -1,3 +1,6 @@
+from tarzan2.py import hi
+hi()
+
 import random
 from newsapi import NewsApiClient
 apis = ('f5f7ae594ad34dadbe4c0557dc6ed08d','3dec73d81a554590b4a31773ead72a3b','094187de74f94946a2b43ef202a3aa12')
