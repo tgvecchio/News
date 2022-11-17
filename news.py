@@ -1,4 +1,4 @@
-from tarzan2.py import hi
+from tarzan2 import hi
 hi()
 
 import random
