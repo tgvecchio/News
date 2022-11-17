@@ -27,6 +27,11 @@
     files = ["/tarzan2.py"]
   </py-config>
 
+  <py-env>
+      -paths:
+        - /tarzan2.py
+  </py-env>
+
 </head>
 
 <body>
@@ -37,7 +42,7 @@
 
   <py-script>
       import random
-      print('importing tarzan')
+      print('importing PATHS tarzan')
       from tarzan2 import hi
       #import news.py
       #from newsapi import NewsApiClient
