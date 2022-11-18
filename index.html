@@ -31,13 +31,28 @@
 
 <body>
   <a> Wait for pyhton </a>
-  <h1> . </h1>
+  <h1> ... </h1>
 
   <py-script>
       import json
       from pyodide.ffi import to_js
       import js
       from js import Object
+
+      request_params = {
+      "method": "GET",
+      "body": json.dumps({ "some" : "json" }),
+      "params": {'sources':'abc-news', 'language':'en', 'country':None , 'category': None},
+      "headers": {'Authorization': 'f5f7ae594ad34dadbe4c0557dc6ed08d'}
+      }
+
+      req = await js.fetch('https://newsapi.org/v2/top-headlines',
+      to_js(request_params, dict_converter=js.Object.fromEntries)
+      )
+      res = await req.json()
+      js.JSON.stringify(res)
+
+
   </py-script>
 
 </body>
