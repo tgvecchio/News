@@ -31,7 +31,7 @@
 
 <body>
   <a> Wait for pyhton </a>
-  <h1> ... </h1>
+  <h1> .. </h1>
 
   <py-script>
       import json
@@ -40,7 +40,7 @@
       from js import Object
 
       request_params = {
-      "method": "GET",
+      "method": "POST",
       "params": {'sources':'abc-news', 'language':'en', 'country':None , 'category': None},
       "headers": {'Authorization': 'f5f7ae594ad34dadbe4c0557dc6ed08d'}
       }
@@ -48,8 +48,11 @@
       req = await js.fetch('https://newsapi.org/v2/top-headlines',
       to_js(request_params, dict_converter=js.Object.fromEntries)
       )
+
       res = await req.json()
       js.JSON.stringify(res)
+
+      print(res)
 
 
   </py-script>
