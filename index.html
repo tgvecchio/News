@@ -34,10 +34,9 @@
   <h1> .. </h1>
 
   <py-script>
-      import json
-      from pyodide.ffi import to_js
-      import js
-      from js import Object
+
+      from pyodide.http import pyfetch
+      import asyncio
 
       request_params = {
       "method": "POST",
@@ -45,14 +44,11 @@
       "headers": {'Authorization': 'f5f7ae594ad34dadbe4c0557dc6ed08d'}
       }
 
-      req = await js.fetch('https://newsapi.org/v2/top-headlines',
-      to_js(request_params, dict_converter=js.Object.fromEntries)
-      )
-
-      res = await req.json()
-      js.JSON.stringify(res)
-
-      print(res)
+      response = await pyfetch(url="https://newsapi.org/v2/top-headlines",
+      method="GET")
+      output = f"GET request=> status:{response.status}, json:{await response.json()}"
+      
+      print(response)
 
 
   </py-script>
