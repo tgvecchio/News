@@ -33,6 +33,19 @@
   <h1> ... </h1>
 
   <py-script>
+        from js import XMLHttpRequest
+        req = XMLHttpRequest.new()
+        req.open("GET", "https://newsapi.org/v2/top-headlines?q=en&apiKey=f5f7ae594ad34dadbe4c0557dc6ed08d", False)
+        req.send(None)
+        output = str(req.response)
+        print(output)
+
+      ### OR
+        from pyodide.http import pyfetch
+        import asyncio
+        response = await pyfetch(url="https://newsapi.org/v2/top-headlines?q=se&apiKey=f5f7ae594ad34dadbe4c0557dc6ed08d", method="GET")
+        output = f"GET request=> status:{response.status}, json:{await response.json()}"
+        print(output)
   </py-script>
 
 </body>
