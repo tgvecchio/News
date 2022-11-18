@@ -12,7 +12,7 @@ ul {
   left: 250px;
   height: 50px;
   width: 50px;
-  border: none;
+  border: True;
   color: var(--btnFontColor);
   background-color: var(--btnBg);
 }
