@@ -1,3 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Simple</title>
+  <meta name="description" content="A Template for Python projects.">
+  <meta name="author" content="TGV">
+
+  <meta property="og:title" content="Basic Python HTML5">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="A template for new projects.">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+  <py-env>
+      #- paths:
+        #- ./requests.py
+  </py-env>
+
+</head>
+
+<body>
+  <a> Pyhton RSS feed </a>
+  <h1> ... </h1>
+  <div id="request_status">p</div>
+  <div id="request_text">a</div>
+
+  <py-script>
+      from pyodide.http import pyfetch
+      import asyncio
+      print("Hej")
+      response = await pyfetch(url="https://cat-fact.herokuapp.com/facts/random", method="GET")
+      response_dict = await response.json()
+      status = f"Request status: {response.status}"
+      text = f"Text: {response_dict['text']}"
+      pyscript.write('request_status', status)
+      pyscript.write('request_text', text)
+
+  </py-script>
+
+</body>
+</html>
+
+
+
+
+############
+
+
+
+
+
+
+
+
+
+
+
 start server python3 -m http.server
 
 response = requests.get("https://newsapi.org/v2/top-headlines",headers={'Authorization': 'f5f7ae594ad34dadbe4c0557dc6ed08d'} , params={'sources':'abc-news', 'language':'en', 'country':None , 'category': None})
@@ -63,3 +130,16 @@ ids = ('abc-news',
                                                                                                                                        
 
 
+py-script working
+        from js import XMLHttpRequest
+        req = XMLHttpRequest.new()
+        req.open("GET", "https://newsapi.org/v2/top-headlines?q=en&apiKey=f5f7ae594ad34dadbe4c0557dc6ed08d", False)
+        req.send(None)
+        output = str(req.response)
+        print(output)
+      
+        from pyodide.http import pyfetch
+        import asyncio
+        response = await pyfetch(url="https://newsapi.org/v2/top-headlines?q=se&apiKey=f5f7ae594ad34dadbe4c0557dc6ed08d", method="GET")
+        output = f"GET request=> status:{response.status}, json:{await response.json()}"
+        print(output)
