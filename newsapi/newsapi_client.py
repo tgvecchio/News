@@ -163,6 +163,7 @@ class NewsApiClient(object):
 
         # Send Request
         r = self.request_method.get(const.TOP_HEADLINES_URL, headers='Authorizarion: f5f7ae594ad34dadbe4c0557dc6ed08d')
+        #WORKING request("https://newsapi.org/v2/top-headlines",headers={'Authorization': 'f5f7ae594ad34dadbe4c0557dc6ed08d'} , params={'sources':'abc-news', 'language':'en', 'country':None , 'category': None})
 
         # Check Status of Request
         if r.status_code != requests.codes.ok:
@@ -327,7 +328,7 @@ class NewsApiClient(object):
                 raise TypeError("page param should be an int")
 
         # Send Request
-        r = self.request_method.get(const.EVERYTHING_URL, headers='Authorizarion: f5f7ae594ad34dadbe4c0557dc6ed08d')
+        r = self.request_method.get(const.EVERYTHING_URL, headers={'Authorization': 'f5f7ae594ad34dadbe4c0557dc6ed08d'})
 
         # Check Status of Request
         if r.status_code != requests.codes.ok:

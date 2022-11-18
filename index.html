@@ -36,29 +36,11 @@
 
 <body>
   <a> Wait for pyhton </a>
-  <h1> . </h1>
+  <h1> .... </h1>
 
   <py-script>
-      import random
-      import tarzan2
-      #from newsapi_client import NewsApiClient
-      apis = ('f5f7ae594ad34dadbe4c0557dc6ed08d','3dec73d81a554590b4a31773ead72a3b','094187de74f94946a2b43ef202a3aa12')
-      api = NewsApiClient(api_key=random.choice(apis))
-
-      def run_news():
-	    ids = ('abc-news')
-        try:
-		  for i in ids:
-			njson = api.get_top_headlines(sources=i)
-			for i in njson['articles']:
-				# if i['publishedAt'] == None:
-				string1 = ('' + i['title'] + '   ')
-				print(string1)
-				print('//', i['description'], '//', i['content'], '//', '', i['url'])
-				print()
-        except TypeError:
-		  pass
-      tarzan2.run_news()
+      import requests
+      response = await request(url= "https://newsapi.org/v2/top-headlines", method="GET", headers={'Authorization': 'f5f7ae594ad34dadbe4c0557dc6ed08d'} , body={'sources':'abc-news', 'language':'en', 'country':None , 'category': None})
   </py-script>
 
 </body>
