@@ -23,8 +23,8 @@
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
   <py-env>
-      - paths:
-        - ./requests.py
+      #- paths:
+        #- ./requests.py
   </py-env>
 
 </head>
@@ -34,19 +34,10 @@
   <h1> ... </h1>
 
   <py-script>
-      from pyodide.http import pyfetch, FetchResponse
-      from typing import Optional, Any
-      async def request(url: str, method: str = "GET", body: Optional[str] = None,
-                  headers: Optional[dict[str, str]] = None, **fetch_kwargs: Any) -> FetchResponse:
-        kwargs = {"method": method, "mode": "cors"}  # CORS: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-        if body and method not in ["GET", "HEAD"]:
-            kwargs["body"] = body
-        if headers:
-            kwargs["headers"] = headers
-        kwargs.update(fetch_kwargs)
-        response = await pyfetch(url, **kwargs)
-        return response
-      response = await request(url= "https://newsapi.org/v2/top-headlines", method="GET", headers={'Authorization': 'f5f7ae594ad34dadbe4c0557dc6ed08d'} , body={'sources':'abc-news', 'language':'en', 'country':None , 'category': None})
+      import json
+      from pyodide import to_js
+      import js
+      from js import Object
   </py-script>
 
 </body>
