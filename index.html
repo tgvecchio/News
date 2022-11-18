@@ -46,8 +46,7 @@
       api = NewsApiClient(api_key=random.choice(apis))
 
       def run_news():
-	    ids = ('abc-news',
-		   )
+	    ids = ('abc-news')
         try:
 		  for i in ids:
 			njson = api.get_top_headlines(sources=i)
