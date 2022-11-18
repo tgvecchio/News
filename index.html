@@ -48,8 +48,8 @@
       def run_news():
 	    ids = ('abc-news',
 		   )
-      try:
-		for i in ids:
+        try:
+		  for i in ids:
 			njson = api.get_top_headlines(sources=i)
 			for i in njson['articles']:
 				# if i['publishedAt'] == None:
@@ -57,8 +57,8 @@
 				print(string1)
 				print('//', i['description'], '//', i['content'], '//', '', i['url'])
 				print()
-      except TypeError:
-		pass
+        except TypeError:
+		  pass
       tarzan2.run_news()
   </py-script>
 
